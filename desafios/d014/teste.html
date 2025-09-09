@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linguagem de Programação Favorita</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+        }
+        
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        p {
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 20px 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .console {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            border-radius: 10px;
+            height: 200px;
+            overflow-y: auto;
+            text-align: left;
+            margin-top: 30px;
+        }
+        
+        .console-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .language-display {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .language-text {
+            font-weight: bold;
+            color: #ffcc00;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Linguagem de Programação Favorita</h1>
+        <p>Clique no botão abaixo para informar qual é a sua linguagem de programação favorita.</p>
+        
+        <button class="btn" id="askBtn">Perguntar Linguagem Favorita</button>
+        
+        <div id="languageDisplay" class="language-display">
+            Sua linguagem favorita é: <span id="languageText" class="language-text"></span>
+        </div>
+        
+        <div class="console">
+            <div class="console-header">
+                <span>Console do Navegador</span>
+                <span>▶</span>
+            </div>
+            <div id="consoleOutput">
+                // O resultado será exibido aqui e no console do navegador<br>
+                // Para abrir o console: F12 → Console
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const askBtn = document.getElementById('askBtn');
+            const consoleOutput = document.getElementById('consoleOutput');
+            const languageDisplay = document.getElementById('languageDisplay');
+            const languageText = document.getElementById('languageText');
+            
+            // Função para adicionar mensagem ao console da página
+            function addToConsole(message) {
+                consoleOutput.innerHTML += message + '<br>';
+                consoleOutput.scrollTop = consoleOutput.scrollHeight;
+            }
+            
+            // Função para perguntar a linguagem favorita
+            function askFavoriteLanguage() {
+                // Usando prompt para perguntar ao usuário
+                const linguagem = prompt('Qual a linguagem de programação que você mais gosta?');
+                
+                // Verificando se o usuário digitou algo
+                if (linguagem) {
+                    // Mostrando no console do navegador
+                    console.log(`Linguagem de programação favorita: ${linguagem}`);
+                    
+                    // Mostrando na página
+                    languageText.textContent = linguagem;
+                    languageDisplay.style.display = 'block';
+                    
+                    // Mostrando no console da página
+                    addToConsole(`Usuário informou: ${linguagem}`);
+                } else {
+                    // Caso o usuário cancele ou não digite nada
+                    console.log('O usuário não informou uma linguagem de programação.');
+                    addToConsole('O usuário não informou uma linguagem.');
+                    
+                    // Escondendo a exibição da linguagem
+                    languageDisplay.style.display = 'none';
+                }
+            }
+            
+            // Event listener para o botão
+            askBtn.addEventListener('click', askFavoriteLanguage);
+        });
+    </script>
+</body>
+</html>
