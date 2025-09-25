@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Dom</title>
+    <link rel="shortcut icon" href="favicon_js.png" type="image/x-icon">
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: column; /* Alinha os elementos em coluna */
+        }
+
+        h1{
+            color: #333;
+            margin-bottom: 20px; /* Espaçamento inferior */
+            font-size: 28px; /* Tamanho da fonte */
+        }
+    </style>
+</head>
+<body>
+    <h1>Eventos DOM</h1>
+    <div id="click"> 
+        Interaja com o mouse aqui!
+    </div>
+    
+    <script>
+        var a = window.document.getElementById('click');
+        a.addEventListener('click', clicar); //Adiciona o evento de clique
+        a.addEventListener('mouseenter', entrar); //Adiciona o evento de entrar com o mouse
+        a.addEventListener('mouseout', sair); //Adiciona o evento de sair com o mouse
+
+        function clicar(){
+            //Altera o texto e o estilo do elemento ao clicar
+            a.innerText = 'Clicou!';
+            a.style.background = '#ff0000';
+            a.style.color = '#ffffff';
+            a.style.padding = '20px';
+            a.style.width = '200px';
+            a.style.textAlign = 'center';
+            a.style.borderRadius = '10px';
+            a.style.cursor = 'pointer';
+        }
+
+        function entrar(){
+            //Altera o texto e o estilo do elemento ao entrar com o mouse
+            a.innerText = 'Entrou!';
+            a.style.background = '#00ff00';
+            a.style.color = '#000000';
+            a.style.padding = '20px';
+            a.style.width = '200px';
+            a.style.textAlign = 'center';
+            a.style.borderRadius = '10px';
+            a.style.cursor = 'pointer';
+        }
+
+        function sair(){
+            //Altera o texto e o estilo do elemento ao sair com o mouse
+            a.innerText = 'Saiu!';
+            a.style.background = '#0000ff';
+            a.style.color = '#ffffff';
+            a.style.padding = '20px';
+            a.style.width = '200px';
+            a.style.textAlign = 'center';
+            a.style.borderRadius = '10px';
+            a.style.cursor = 'pointer';
+        }
+
+    </script>
+    
+</body>
+</html>

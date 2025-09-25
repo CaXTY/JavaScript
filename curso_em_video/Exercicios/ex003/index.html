@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício_003</title>
+    <link rel="shortcut icon" href="img/favicon_js.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: column; /* Alinha os elementos em coluna */
+        }
+
+        h1{
+            color: #333;
+            margin-bottom: 20px; /* Espaçamento inferior */
+            font-size: 28px; /* Tamanho da fonte */
+        }
+    </style>
+</head>
+<body>
+    <h1>Somando números!</h1>
+    <script>
+        var n1 = window.prompt("Digite um valor:"); // STRING
+        var n2 = window.prompt("Digite outro valor:"); // STRING
+        var s = Number(n1) + Number(n2); // Converte os valores para número e soma
+        window.alert(`A soma entre ${n1} e ${n2} é igual a ${s}`); // usa template string
+    </script>
+</body>
+</html>

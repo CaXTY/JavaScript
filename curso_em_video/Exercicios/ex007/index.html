@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando Números</title>
+    <link rel="shortcut icon" href="Imagens/favicon_js.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: column; /* Alinha os elementos em coluna */
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px; /* Espaçamento inferior */
+            font-size: 28px; /* Tamanho da fonte */
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        input[type="button"] {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #218838;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Somando Valores</h1>
+    <input type="number" name="valor1" id="valor1"> +
+    <input type="number" name="valor2" id="valor2">
+    <input type="button" value="Somar" onclick="somar()">
+    <div id="resultado"> Resultado: </div>
+
+    <script>
+        function somar(){
+            var v1 = window.document.querySelector('#valor1');
+            var v2 = window.document.querySelector('#valor2');
+            var r = window.document.querySelector('#resultado');
+            r.innerHTML = 'Resultado: ' + (Number(v1.value) + Number(v2.value));
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <link rel="shortcut icon" href="Imagens/favicon_js.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            margin: auto;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        input[type="button"] {
+            padding: 5px 10px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+    <form>
+        Velocidade do carro: <input type="number" id="txtvel" name="txtvel"> Km/h
+       <input type="button" value="Verificar" onclick="calcularVelocidade()">
+       <div id="resultado"></div>
+    </form>
+
+    <script>
+        function calcularVelocidade() {
+            var txtv = document.querySelector('input#txtvel');
+            var resultado = document.querySelector('div#resultado');
+            var velocidade = Number(txtv.value);
+            resultado.innerHTML = `<p> A velocidade do seu carro é ${velocidade} Km/h </p> <br>`;
+            if (velocidade > 60) {
+                resultado.innerHTML = '<p>Você ultrapassou a velocidade permitida. <strong>MULTADO!</strong></p>';
+            } else {
+                resultado.innerHTML = '<p>Você está dentro da <strong>velocidade permitida.</strong></p>';
+            }
+            resultado.innerHTML += '<p>Dirija sempre usando <strong>cinto de segurança!</strong></p>';
+        }
+    </script>
+</body>
+</html>
